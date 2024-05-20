@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .countdown {
+            font-size: 2em;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown to Baby's Arrival</h1>
+    <div id="countdown" class="countdown"></div>
+    <script>
+        function countdownTimer(dueDate) {
+            const countDownDate = new Date(dueDate).getTime();
+            const countdownElement = document.getElementById('countdown');
+
+            const updateCountdown = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (distance < 0) {
+                    clearInterval(updateCountdown);
+                    countdownElement.innerHTML = "Baby is here!";
+                }
+            }, 1000);
+        }
+
+        countdownTimer('2024-12-31T00:00:00'); // Replace with your due date
+    </script>
+</body>
+</html>
