@@ -8,20 +8,39 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f8f9fa;
+            background-color: #ffc0cb; /* Pink background */
             color: #333;
             margin: 0;
             padding: 20px;
         }
         .countdown {
             font-size: 2em;
-            margin-top: 20%;
+            margin-top: 20px;
+        }
+        .baby-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .baby-images img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Countdown to Baby's Arrival</h1>
     <div id="countdown" class="countdown"></div>
+    <div class="baby-images">
+        <img src="https://via.placeholder.com/200x200.png?text=Baby+1" alt="Baby Image 1">
+        <img src="https://via.placeholder.com/200x200.png?text=Baby+2" alt="Baby Image 2">
+        <img src="https://via.placeholder.com/200x200.png?text=Baby+3" alt="Baby Image 3">
+        <img src="https://via.placeholder.com/200x200.png?text=Baby+4" alt="Baby Image 4">
+    </div>
     <script>
         function countdownTimer(dueDate) {
             const countDownDate = new Date(dueDate).getTime();
@@ -45,7 +64,7 @@
             }, 1000);
         }
 
-        countdownTimer('2024-12-31T00:00:00'); // Replace with your due date
+        countdownTimer('2024-09-01T00:00:00'); // Due date: September 1, 2024
     </script>
 </body>
 </html>
